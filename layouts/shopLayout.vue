@@ -3,6 +3,7 @@
     <ShoppingCart />
     <Header />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 <script>
