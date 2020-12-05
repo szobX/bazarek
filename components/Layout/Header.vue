@@ -21,7 +21,8 @@
           ></path>
         </svg>
       </a>
-      <a
+      <div
+        @click="$store.commit('cart/SET_OPEN', true)"
         class="flex title-font font-medium items-center text-gray-900 mb-4 mr-3 md:mb-0"
       >
         <svg
@@ -39,11 +40,12 @@
           ></path>
         </svg>
         <div
-          class="rounded-full h-2.5 w-2.5 flex items-center bg-green-400 text-white"
+          v-if="$store.state.cart.items.length"
+          class="shopping-cart-badge bg-green-300"
         >
-          5
+          {{ $store.state.cart.items.length }}
         </div>
-      </a>
+      </div>
       <nav
         class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
       >
@@ -81,4 +83,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.shopping-cart-badge {
+  color: #fff;
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

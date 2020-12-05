@@ -7,8 +7,8 @@
         <div class="text-right inline-block">
           <svg
             class="w-6 h-6"
-            fill="#eee"
-            stroke="#eee"
+            :fill="product.like ? 'red' : '#eee'"
+            :stroke="product.like ? 'red' : '#eee'"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -51,9 +51,22 @@
         </div>
       </div>
       <div class="flex flex-wrap justify-between align-baseline">
-        <h4 class="mt-1 font-bold text-lg">{{ product.Price }} zł</h4>
-        <div class="w-1/4">
-          <input class="input bg-gray-300 text-gray-900" type="number" />
+        <h4 class="font-bold text-lg">{{ product.Price }} zł</h4>
+        <div v-if="!isInCart" class="w-1/3">
+          <input
+            class="input bg-gray-300 text-gray-900"
+            @blur="addToCart(product)"
+            v-model="quantity"
+            type="number"
+          />
+        </div>
+        <div v-if="isInCart" class="w-1/2">
+          <button
+            @click="deleteItem"
+            class="inline-flex items-center bg-red-400 border-1 py-1 px-1 text-white text-xs font-semiBold px-3 focus:outline-none hover:bg-white hover:text-red-400 hover:border-red-400 rounded md:mt-0"
+          >
+            USUŃ Z KOSZYKA
+          </button>
         </div>
       </div>
     </a>
@@ -71,16 +84,42 @@ export default {
       required: true,
     },
   },
+  computed: {
+    isInCart() {
+      return this.$store.state.cart.items.length > 0
+        ? Boolean(
+            this.$store.state.cart.items.find(
+              (item) => item.id === this.product.Id
+            )
+          )
+        : false
+    },
+  },
   data() {
     return {
+      quantity: 0,
       colors: ['green', 'yellow', 'red', 'blue', 'pink', 'purple', 'indigo'],
     }
+  },
+  methods: {
+    deleteItem(obj) {
+      this.$store.commit('cart/REMOVE_PRODUCT', { id: this.product.Id })
+    },
+    addToCart(obj) {
+      console.log(obj)
+      this.$store.commit('cart/ADD_PRODUCT', {
+        quantity: this.quantity,
+        id: this.product.Id,
+        product: this.product,
+      })
+    },
   },
 }
 </script>
 
 <style scoped>
 .input {
+  width: 100%;
   height: 35px;
   border: none;
   border-radius: 30px;

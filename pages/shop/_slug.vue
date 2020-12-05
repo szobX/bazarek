@@ -34,8 +34,11 @@
         <div class="w-24 bg-green-600 h-2"></div>
       </div>
       <div class="flex flex-wrap -m-4">
-        <ProductCard :product="exampleProducts[0]" />
-        <ProductCard :product="exampleProducts[1]" />
+        <ProductCard
+          v-for="product in exampleProducts"
+          :key="product.id"
+          :product="product"
+        />
       </div>
     </div>
   </section>
