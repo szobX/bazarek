@@ -1,14 +1,16 @@
 <template>
-  <div class="shop-page">
+  <div class="shop-page relative">
+    <ShoppingCart />
     <Header />
     <Nuxt />
   </div>
 </template>
 <script>
-import Header from '@/components/layout/Header'
+import Header from '@/components/Layout/Header'
+import ShoppingCart from '~/components/Layout/ShoppingCart'
 export default {
   name: 'ShopLayout',
-  components: { Header },
+  components: { ShoppingCart, Header },
 }
 </script>
 <style>

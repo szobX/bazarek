@@ -2,7 +2,12 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: ['Roboto', 'sans-serif'],
+        body: ['OpenSans', 'sans-serif'],
+      },
+    },
   },
   variants: {
     extend: {},

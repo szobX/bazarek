@@ -1,0 +1,38 @@
+export default [
+  {
+    Id: '123',
+    FirstName: 'Jan',
+    LastName: 'Kowalski',
+    ShortDescription: 'Lorem ipsum larbewr on de tere',
+    LongDescription: 'Lorem ipsum larbewr on de tere',
+    Name: 'Test#1',
+    ProfilePhoto: '/farmer1.jpg',
+  },
+  {
+    Id: '1244',
+    FirstName: 'Jan',
+    LastName: 'Kowalski',
+    ShortDescription: 'Lorem ipsum larbewr on de tere',
+    LongDescription: 'Lorem ipsum larbewr on de tere',
+    Name: 'Test#1',
+    ProfilePhoto: '/farmer2.jpg',
+  },
+  {
+    Id: '2',
+    FirstName: 'Marek',
+    LastName: 'Mostowiak',
+    ShortDescription: 'Lorem ipsum larbewr on de tere',
+    LongDescription: 'Lorem ipsum larbewr on de tere',
+    Name: 'Farmerek',
+    ProfilePhoto: '/farmer1.jpg',
+  },
+  {
+    Id: '2334-3432-3443-3231',
+    FirstName: 'Jakub',
+    LastName: 'Chrząszcz',
+    ShortDescription: 'Lorem ipsum larbewr on de tere',
+    LongDescription: 'Lorem ipsum larbewr on de tere',
+    Name: 'Test#3',
+    ProfilePhoto: '/farmer2.jpg',
+  },
+]
